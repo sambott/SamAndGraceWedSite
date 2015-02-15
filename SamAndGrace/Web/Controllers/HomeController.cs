@@ -13,17 +13,13 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Itinery()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult GiftList()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

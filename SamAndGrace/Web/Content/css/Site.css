@@ -1,0 +1,37 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-brand {
+    font-family: 'Tangerine', cursive;
+    font-size: 40px;
+}
+
+.jumbotron h1,
+.jumbotron .h1 {
+    font-family: 'Tangerine', cursive;
+}
+
+.s-and-g-photo {
+    background: url("../Content/Images/sandg.JPG") no-repeat center center !important;
+    color: whitesmoke;
+    -ms-text-shadow: 4px 4px 4px #555;
+    text-shadow: 4px 4px 4px #555;
+    max-width: 700px;
+    min-height: 300px;
+    line-height: 150px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
