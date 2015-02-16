@@ -1,0 +1,3 @@
+# SamAndGraceWedSite
+
+Our wedding website :)
