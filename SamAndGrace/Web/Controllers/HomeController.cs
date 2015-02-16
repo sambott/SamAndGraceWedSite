@@ -22,5 +22,15 @@ namespace Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Rsvp()
+        {
+            return View();
+        }
+
+        public ActionResult MusicSuggestions()
+        {
+            return View();
+        }
     }
 }
