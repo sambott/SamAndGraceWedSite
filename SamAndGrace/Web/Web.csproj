@@ -122,7 +122,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
-    <Compile Include="DAL\IRsvpRepository.cs" />
+    <Compile Include="DAL\RsvpRepository.cs" />
     <Compile Include="DAL\SamAndGraceContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

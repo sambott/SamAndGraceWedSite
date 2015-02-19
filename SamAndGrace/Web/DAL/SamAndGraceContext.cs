@@ -9,7 +9,7 @@ namespace Web.DAL
 {
     public class SamAndGraceContext : DbContext
     {
-        public SamAndGraceContext() : base("SamAndGraceContext") { }
+        public SamAndGraceContext() : base("DefaultConnection") { }
 
         public DbSet<Rsvp> Rsvps { get; set; }
     }
