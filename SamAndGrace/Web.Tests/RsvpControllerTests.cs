@@ -40,7 +40,7 @@ namespace Web.Tests
                 RequiresTransport = false
             });
             t.Save();
-            Assert.That(t.GetAll().Count(), Is.EqualTo(2));
+            Assert.That(t.GetAll().Count(), Is.EqualTo(1));
         }
     }
 }
