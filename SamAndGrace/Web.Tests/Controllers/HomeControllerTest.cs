@@ -29,10 +29,10 @@ namespace Web.Tests.Controllers
         }
 
         [Test]
-        public void ItineryExists()
+        public void ItineraryExists()
         {
             var controller = new HomeController();
-            var result = controller.Itinery() as ViewResult;
+            var result = controller.Itinerary() as ViewResult;
             Assert.IsNotNull(result);
         }
 
