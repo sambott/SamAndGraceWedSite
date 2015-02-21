@@ -37,7 +37,16 @@
                 }
             </td>
             <td>@hotel.NumberOfRooms</td>
-            <td><a class="alert-link" href="@hotel.Url.Value" target="_blank">@hotel.Url.Value</a></td>
+            <td>
+                @if (hotel.Url == null)
+                {
+                    @:&nbsp;
+                }
+                else
+                {
+                    <a class="alert-link" href="@hotel.Url.Value" target="_blank">@hotel.Url.Value</a>
+                }
+            </td>
             <td>@hotel.PhoneNumber</td>
         </tr>
     }
@@ -74,7 +83,16 @@
                 </span>
             }
             </td>
-            <td><a class="alert-link" href="@bAndB.Url.Value" target="_blank">@bAndB.Url.Value</a></td>
+            <td>
+                @if (bAndB.Url == null)
+                {
+                    @:&nbsp;
+                }
+                else
+                {
+                    <a class="alert-link" href="@bAndB.Url.Value" target="_blank">@bAndB.Url.Value</a>
+                }
+            </td>
             <td>@bAndB.PhoneNumber</td>
         </tr>
     }
