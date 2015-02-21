@@ -27,14 +27,6 @@ namespace Web.Tests
         }
 
         [Test]
-        public void ItineraryExists()
-        {
-            var controller = new HomeController();
-            var result = controller.Itinerary() as ViewResult;
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
         public void RsvpExists()
         {
             var controller = new HomeController();
