@@ -1,6 +1,30 @@
-﻿@{
-    ViewBag.Title = "Nearby Hotels";
+﻿@using Web.Models
+@{
+    ViewBag.Title = "Nearby Accomodation";
 }
 <h2>@ViewBag.Title.</h2>
 
-<p>Coming soon...</p>
+<h3>Hotels</h3>
+<table class="table table-bordered">
+    <tr>
+        <td>Name</td>
+        <td>Location</td>
+        <td>Distance</td>
+        <td>Stars</td>
+        <td>Number Of Rooms</td>
+        <td>Web</td>
+        <td>Phone Number</td>
+    </tr>
+    @foreach (Hotel hotel in ViewBag.Hotels)
+    {
+        <tr>
+            <td>@hotel.Name</td>
+            <td>@hotel.Location</td>
+            <td>@hotel.DriveDistanceMinutes minutes' drive</td>
+            <td>@hotel.StarRating</td>
+            <td>@hotel.NumberOfRooms</td>
+            <td><a class="alert-link" href="@hotel.Url.Value" target="_blank">@hotel.Url.Value</a></td>
+            <td>@hotel.PhoneNumber</td>
+        </tr>
+    }
+</table>

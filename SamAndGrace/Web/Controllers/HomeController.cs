@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -46,6 +47,8 @@ namespace Web.Controllers
 
         public ActionResult Hotels()
         {
+            ViewBag.Hotels = Directory.Instance.Hotels;
+            ViewBag.BAndBs = Directory.Instance.BAndBs;
             return View();
         }
 

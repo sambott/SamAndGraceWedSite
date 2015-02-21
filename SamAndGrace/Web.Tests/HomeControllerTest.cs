@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using NUnit.Framework;
-using Web;
 using Web.Controllers;
+using Web.Models;
 
-namespace Web.Tests.Controllers
+namespace Web.Tests
 {
     [TestFixture]
     public class HomeControllerTest
@@ -66,6 +63,8 @@ namespace Web.Tests.Controllers
             var controller = new HomeController();
             var result = controller.Hotels() as ViewResult;
             Assert.IsNotNull(result);
+            Assert.That(result.ViewBag.Hotels, Is.TypeOf(typeof(List<Hotel>)));
+            Assert.That(result.ViewBag.BAndBs, Is.TypeOf(typeof(List<BAndB>)));
         }
 
         [Test]
