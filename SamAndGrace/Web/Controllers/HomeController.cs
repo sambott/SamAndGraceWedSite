@@ -42,10 +42,11 @@ namespace Web.Controllers
 
         public ActionResult Taxis()
         {
+            ViewBag.TaxiFirms = Directory.Instance.Taxis;
             return View();
         }
 
-        public ActionResult Hotels()
+        public ActionResult Accomodation()
         {
             ViewBag.Hotels = Directory.Instance.Hotels;
             ViewBag.BAndBs = Directory.Instance.BAndBs;

@@ -379,8 +379,6 @@ namespace Web.Models
             };
 
             #endregion
-
-            m_bAndBs = new List<BAndB>();
         }
 
         public List<Hotel> Hotels

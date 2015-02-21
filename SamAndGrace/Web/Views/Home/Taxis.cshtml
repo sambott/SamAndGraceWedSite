@@ -1,6 +1,27 @@
-﻿@{
+﻿@using Web.Models
+@{
     ViewBag.Title = "Local Taxi Companies";
+    ViewBag.Cross = Html.Raw("&#x2718;");
+    ViewBag.Tick = Html.Raw("&#x2714;");
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>Coming soon...</p>
+<table class="table table-striped table-hover">
+    <tr>
+        <td>Name</td>
+        <td>Location</td>
+        <td>Has Minibuses/People Carriers?</td>
+        <td>Phone Number</td>
+    </tr>
+    @foreach (Taxi taxi in ViewBag.TaxiFirms)
+    {
+        <tr>
+            <td>@taxi.Name</td>
+            <td>@taxi.Location</td>
+            <td><span class="badge">
+                @(taxi.HasPeopleCarriers ? ViewBag.Tick : ViewBag.Cross)
+            </span></td>
+            <td>@taxi.PhoneNumber</td>
+        </tr>
+    }
+</table>

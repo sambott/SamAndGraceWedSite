@@ -175,7 +175,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\MusicSuggestions.cshtml" />
     <Content Include="Views\Home\Rsvp.cshtml" />
-    <Content Include="Views\Home\Hotels.cshtml" />
+    <Content Include="Views\Home\Accomodation.cshtml" />
     <Content Include="Views\Home\Taxis.cshtml" />
   </ItemGroup>
   <ItemGroup>

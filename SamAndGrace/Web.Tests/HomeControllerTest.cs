@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using NUnit.Framework;
 using Web.Controllers;
 using Web.Models;
+using System.Linq;
 
 namespace Web.Tests
 {
@@ -55,16 +56,20 @@ namespace Web.Tests
             var controller = new HomeController();
             var result = controller.Taxis() as ViewResult;
             Assert.IsNotNull(result);
+            Assert.That(result.ViewBag.TaxiFirms, Is.TypeOf<List<Taxi>>());
+            Assert.That(result.ViewBag.TaxiFirms.Count, Is.GreaterThan(0));
         }
 
         [Test]
-        public void HotelsExists()
+        public void AccomodationExists()
         {
             var controller = new HomeController();
-            var result = controller.Hotels() as ViewResult;
+            var result = controller.Accomodation() as ViewResult;
             Assert.IsNotNull(result);
-            Assert.That(result.ViewBag.Hotels, Is.TypeOf(typeof(List<Hotel>)));
-            Assert.That(result.ViewBag.BAndBs, Is.TypeOf(typeof(List<BAndB>)));
+            Assert.That(result.ViewBag.Hotels, Is.TypeOf<List<Hotel>>());
+            Assert.That(result.ViewBag.Hotels.Count, Is.GreaterThan(0));
+            Assert.That(result.ViewBag.BAndBs, Is.TypeOf<List<BAndB>>());
+            Assert.That(result.ViewBag.BAndBs.Count, Is.GreaterThan(0));
         }
 
         [Test]
