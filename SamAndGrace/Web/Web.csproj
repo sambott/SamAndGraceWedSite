@@ -120,6 +120,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RsvpController.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
     <Compile Include="DAL\RsvpRepository.cs" />
@@ -169,7 +170,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Itinerary.cshtml" />
     <Content Include="Views\Home\GiftList.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -177,6 +177,11 @@
     <Content Include="Views\Home\Rsvp.cshtml" />
     <Content Include="Views\Home\Accomodation.cshtml" />
     <Content Include="Views\Home\Taxis.cshtml" />
+    <Content Include="Views\Rsvp\Create.cshtml" />
+    <Content Include="Views\Rsvp\Delete.cshtml" />
+    <Content Include="Views\Rsvp\Details.cshtml" />
+    <Content Include="Views\Rsvp\Edit.cshtml" />
+    <Content Include="Views\Rsvp\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
