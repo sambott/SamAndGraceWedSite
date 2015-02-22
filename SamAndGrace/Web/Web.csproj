@@ -188,14 +188,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\MusicSuggestions.cshtml" />
-    <Content Include="Views\Home\Rsvp.cshtml" />
     <Content Include="Views\Home\Accomodation.cshtml" />
     <Content Include="Views\Home\Taxis.cshtml" />
     <Content Include="Views\Rsvp\Create.cshtml" />
-    <Content Include="Views\Rsvp\Delete.cshtml" />
-    <Content Include="Views\Rsvp\Details.cshtml" />
-    <Content Include="Views\Rsvp\Edit.cshtml" />
-    <Content Include="Views\Rsvp\Index.cshtml" />
+    <Content Include="Views\Rsvp\ViewRsvps.cshtml" />
+    <Content Include="Views\Rsvp\Rsvpd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
