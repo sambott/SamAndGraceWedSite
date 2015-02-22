@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using BotDetect.Web.UI.Mvc;
 using Web.DAL;
 using Web.Models;
 
@@ -42,6 +43,7 @@ namespace Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CaptchaValidation("CaptchaCode", "SampleCaptcha", "Incorrect CAPTCHA code!")]
         public ActionResult Create([Bind(Include = "Id,Name,Attending,RequiresTransport,DietryRequirements")] Rsvp rsvp)
         {
             if (ModelState.IsValid)
