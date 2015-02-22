@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Web.Models;
 
 namespace Web.DAL
 {
-    public class SamAndGraceContext : DbContext
+    public class SamAndGraceContext : IdentityDbContext<SiteUser>
     {
         public SamAndGraceContext() : base("DefaultConnection") { }
 
