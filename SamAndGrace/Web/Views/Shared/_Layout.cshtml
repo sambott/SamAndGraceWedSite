@@ -9,41 +9,42 @@
     @Styles.Render("~/Content/css-bundle")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Sam and Grace", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Accomodation", "Accomodation", "Home")</li>
-                    <li>@Html.ActionLink("Taxi Companies", "Taxis", "Home")</li>
-                    <li>@Html.ActionLink("RSVP", "RSVP", "Home")</li>
-                    <li>@Html.ActionLink("Music Suggestions", "MusicSuggestions", "Home")</li>
-                    <li>@Html.ActionLink("Gift List", "GiftList", "Home")</li>
-                </ul>
+    <body>
+        <a id="top" />
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Sam and Grace", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Accomodation", "Accomodation", "Home")</li>
+                        <li>@Html.ActionLink("Taxi Companies", "Taxis", "Home")</li>
+                        <li>@Html.ActionLink("RSVP", "RSVP", "Home")</li>
+                        <li>@Html.ActionLink("Music Suggestions", "MusicSuggestions", "Home")</li>
+                        <li>@Html.ActionLink("Gift List", "GiftList", "Home")</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <div class="navbar-fixed-bottom">
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Sam and Grace: The WedSite</p>
-            </footer>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <div class="navbar-fixed-bottom">
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Sam and Grace: The WedSite</p>
+                </footer>
+            </div>
         </div>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

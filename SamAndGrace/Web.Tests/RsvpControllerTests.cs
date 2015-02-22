@@ -32,15 +32,14 @@ namespace Web.Tests
         [Test]
         public void Test()
         {
-            var t = new RsvpRepository();
-            t.Add(new Rsvp
+            m_repository.Add(new Rsvp
             {
                 Attending = true,
                 Name = "Sam",
                 RequiresTransport = false
             });
-            t.Save();
-            Assert.That(t.GetAll().Count(), Is.EqualTo(1));
+            m_repository.Save();
+            Assert.That(m_repository.GetAll().Count(), Is.EqualTo(1));
         }
     }
 }

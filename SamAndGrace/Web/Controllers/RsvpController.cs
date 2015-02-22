@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Web.DAL;
 using Web.Models;
@@ -13,12 +8,12 @@ namespace Web.Controllers
 {
     public class RsvpController : Controller
     {
-        private SamAndGraceContext db = new SamAndGraceContext();
+        private readonly RsvpRepository m_repo = new RsvpRepository();
 
         // GET: Rsvp
         public ActionResult Index()
         {
-            return View(db.Rsvps.ToList());
+            return View(m_repo.GetAll().ToList());
         }
 
         // GET: Rsvp/Details/5
@@ -28,7 +23,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rsvp rsvp = db.Rsvps.Find(id);
+            Rsvp rsvp = m_repo.GetById(id.Value);
             if (rsvp == null)
             {
                 return HttpNotFound();
@@ -51,8 +46,8 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Rsvps.Add(rsvp);
-                db.SaveChanges();
+                m_repo.Add(rsvp);
+                m_repo.Save();
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +61,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rsvp rsvp = db.Rsvps.Find(id);
+            Rsvp rsvp = m_repo.GetById(id.Value);
             if (rsvp == null)
             {
                 return HttpNotFound();
@@ -83,8 +78,8 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rsvp).State = EntityState.Modified;
-                db.SaveChanges();
+                m_repo.Edit(rsvp);
+                m_repo.Save();
                 return RedirectToAction("Index");
             }
             return View(rsvp);
@@ -97,7 +92,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rsvp rsvp = db.Rsvps.Find(id);
+            Rsvp rsvp = m_repo.GetById(id.Value);
             if (rsvp == null)
             {
                 return HttpNotFound();
@@ -110,9 +105,9 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Rsvp rsvp = db.Rsvps.Find(id);
-            db.Rsvps.Remove(rsvp);
-            db.SaveChanges();
+            Rsvp rsvp = m_repo.GetById(id);
+            m_repo.Delete(rsvp);
+            m_repo.Save();
             return RedirectToAction("Index");
         }
 
@@ -120,7 +115,7 @@ namespace Web.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                m_repo.Dispose();
             }
             base.Dispose(disposing);
         }
