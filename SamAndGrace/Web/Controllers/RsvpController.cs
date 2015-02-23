@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using BotDetect.Web.UI.Mvc;
@@ -10,6 +11,17 @@ namespace Web.Controllers
     public class RsvpController : Controller
     {
         private readonly RsvpRepository m_repo = new RsvpRepository();
+        private readonly IEmailSender m_emailSender;
+
+        public RsvpController()
+        {
+            m_emailSender = new EmailSender();
+        }
+
+        public RsvpController(IEmailSender emailSender)
+        {
+            m_emailSender = emailSender;
+        }
 
         public ActionResult ViewRsvps()
         {
@@ -36,6 +48,14 @@ namespace Web.Controllers
 
             m_repo.Add(rsvp);
             m_repo.Save();
+
+            m_emailSender.SendEmail(
+                new List<string> { "sam.bott@gmail.com" },
+                "rsvp@samandgrace.org",
+                string.Format("RSVP from {0}", rsvp.Name),
+                string.Format("{0} has RSVP'd.\r\nSee http://www.samandgrace.org/Rsvp/ViewRsvps", rsvp.Name)
+                );
+
             return RedirectToAction("Rsvpd");
         }
 

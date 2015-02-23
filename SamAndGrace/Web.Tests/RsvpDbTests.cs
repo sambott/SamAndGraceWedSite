@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using Web.DAL;
 using Web.Models;
@@ -32,7 +33,9 @@ namespace Web.Tests
             {
                 Attending = true,
                 Name = "Sam",
-                RequiresTransport = false
+                RequiresTransport = false,
+                Email = "sam@me.name",
+                RsvpdAt = DateTime.UtcNow
             });
             m_repository.Save();
             Assert.That(m_repository.GetAll().Count(), Is.EqualTo(1));
