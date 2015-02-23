@@ -3,7 +3,6 @@ using System.Web.Mvc;
 using NUnit.Framework;
 using Web.Controllers;
 using Web.Models;
-using System.Linq;
 
 namespace Web.Tests
 {

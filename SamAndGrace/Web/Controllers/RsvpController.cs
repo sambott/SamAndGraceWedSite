@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using BotDetect.Web.UI.Mvc;
 using Web.DAL;
@@ -28,16 +29,14 @@ namespace Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [CaptchaValidation("CaptchaCode", "SampleCaptcha", "Incorrect CAPTCHA code!")]
-        public ActionResult Create([Bind(Include = "Id,Name,Attending,RequiresTransport,DietryRequirements")] Rsvp rsvp)
+        public ActionResult Create([Bind(Include = "Name,Email,Attending,RequiresTransport,DietryRequirements")] Rsvp rsvp)
         {
-            if (ModelState.IsValid)
-            {
-                m_repo.Add(rsvp);
-                m_repo.Save();
-                return RedirectToAction("Rsvpd");
-            }
+            rsvp.RsvpdAt = DateTime.UtcNow;
+            if (!ModelState.IsValid) return View(rsvp);
 
-            return View(rsvp);
+            m_repo.Add(rsvp);
+            m_repo.Save();
+            return RedirectToAction("Rsvpd");
         }
 
         protected override void Dispose(bool disposing)
