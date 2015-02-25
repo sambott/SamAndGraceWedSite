@@ -50,8 +50,7 @@ namespace Web.Controllers
             m_repo.Save();
 
             m_emailSender.SendEmail(
-                new List<string> { "sam.bott@gmail.com" },
-                "rsvp@samandgrace.org",
+                Directory.Instance.RsvpNotify,
                 string.Format("RSVP from {0}", rsvp.Name),
                 string.Format("{0} has RSVP'd.\r\nSee http://www.samandgrace.org/Rsvp/ViewRsvps", rsvp.Name)
                 );

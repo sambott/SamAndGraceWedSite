@@ -11,6 +11,7 @@ namespace Web.Models
         private readonly List<BAndB> m_bAndBs;
         private readonly List<Hotel> m_hotels;
         private readonly List<Taxi> m_taxis;
+        private readonly IEnumerable<string> m_rsvpNotify;
 
         private Directory()
         {
@@ -379,6 +380,14 @@ namespace Web.Models
             };
 
             #endregion
+
+            m_rsvpNotify = new List<string>
+            {
+                "sam.bott@gmail.com",
+                "grace.cairns86@gmail.com",
+                "joy@jardineleathergoods.co.uk",
+                "davidtcairns@msn.com"
+            };
         }
 
         public List<Hotel> Hotels
@@ -394,6 +403,11 @@ namespace Web.Models
         public List<Taxi> Taxis
         {
             get { return m_taxis; }
+        }
+
+        public IEnumerable<string> RsvpNotify
+        {
+            get { return m_rsvpNotify; }
         }
 
         public static Directory Instance

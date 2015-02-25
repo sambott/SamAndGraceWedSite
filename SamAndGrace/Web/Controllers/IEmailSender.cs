@@ -4,6 +4,6 @@ namespace Web.Controllers
 {
     public interface IEmailSender
     {
-        void SendEmail(IEnumerable<string> to, string from, string subject, string body);
+        void SendEmail(IEnumerable<string> to, string subject, string body);
     }
 }

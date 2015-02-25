@@ -49,9 +49,8 @@ namespace Web.Tests
             string subject = null;
             mockEmailSender.Setup(
                 m =>
-                    m.SendEmail(It.IsAny<IEnumerable<string>>(), It.IsAny<string>(), It.IsAny<string>(),
-                        It.IsAny<string>()))
-                .Callback<IEnumerable<string>,string,string,string>((t, f, s, b) =>
+                    m.SendEmail(It.IsAny<IEnumerable<string>>(), It.IsAny<string>(), It.IsAny<string>()))
+                .Callback<IEnumerable<string>,string,string>((t, s, b) =>
                 {
                     message = b;
                     subject = s;
