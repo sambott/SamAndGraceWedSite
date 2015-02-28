@@ -12,5 +12,9 @@ namespace Web.DAL
         public SamAndGraceContext() : base("DefaultConnection") { }
 
         public DbSet<Rsvp> Rsvps { get; set; }
+
+        public DbSet<Artist> Artists { get; set; }
+
+        public DbSet<Track> Tracks { get; set; }
     }
 }

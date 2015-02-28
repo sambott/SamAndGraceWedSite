@@ -25,7 +25,7 @@ namespace Web.DAL
             return query;
         }
 
-        public T GetById(int id)
+        public T GetById(params object[] id)
         {
             return m_context.Set<T>().Find(id);
         }

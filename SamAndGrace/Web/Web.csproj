@@ -54,6 +54,12 @@
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="SendGrid.SmtpApi">
       <HintPath>..\packages\SendGrid.SmtpApi.1.2.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
     </Reference>
@@ -134,11 +140,14 @@
     <Compile Include="Controllers\EmailSender.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IEmailSender.cs" />
+    <Compile Include="Controllers\MusicSuggestionsController.cs" />
     <Compile Include="Controllers\RsvpController.cs" />
+    <Compile Include="DAL\ArtistRepository.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
     <Compile Include="DAL\RsvpRepository.cs" />
     <Compile Include="DAL\SamAndGraceContext.cs" />
+    <Compile Include="DAL\TrackRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,13 +159,19 @@
     <Compile Include="Migrations\201502232029472_AddedDateTime.Designer.cs">
       <DependentUpon>201502232029472_AddedDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503132050577_TracksAndArtists.cs" />
+    <Compile Include="Migrations\201503132050577_TracksAndArtists.Designer.cs">
+      <DependentUpon>201503132050577_TracksAndArtists.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accomodation.cs" />
+    <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\BAndB.cs" />
     <Compile Include="Models\Directory.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Rsvp.cs" />
     <Compile Include="Models\Taxi.cs" />
+    <Compile Include="Models\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +179,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\Images\P3210230.JPG" />
     <Content Include="Content\Images\sandg.JPG" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -199,12 +215,15 @@
     <Content Include="Views\Home\GiftList.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\MusicSuggestions.cshtml" />
     <Content Include="Views\Home\Accomodation.cshtml" />
     <Content Include="Views\Home\Taxis.cshtml" />
     <Content Include="Views\Rsvp\Create.cshtml" />
     <Content Include="Views\Rsvp\ViewRsvps.cshtml" />
     <Content Include="Views\Rsvp\Rsvpd.cshtml" />
+    <Content Include="Views\MusicSuggestions\SuggestMusic.cshtml" />
+    <Content Include="Views\MusicSuggestions\ViewTrackSuggestions.cshtml" />
+    <Content Include="Views\MusicSuggestions\MusicSuggested.cshtml" />
+    <Content Include="Views\MusicSuggestions\ViewArtistSuggestions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -222,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502232029472_AddedDateTime.resx">
       <DependentUpon>201502232029472_AddedDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503132050577_TracksAndArtists.resx">
+      <DependentUpon>201503132050577_TracksAndArtists.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

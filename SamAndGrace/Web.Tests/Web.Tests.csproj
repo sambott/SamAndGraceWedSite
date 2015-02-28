@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MusicSuggestionsControllerTests.cs" />
     <Compile Include="RsvpControllerTests.cs" />
     <Compile Include="RsvpDbTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
