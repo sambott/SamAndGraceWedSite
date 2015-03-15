@@ -10,6 +10,7 @@ namespace Web.Models
     public class Artist
     {
         [Key]
+        public string ArtistId { get; set; }
         [DisplayName("Artist")]
         public string ArtistName { get; set; }
         public int Votes { get; set; }

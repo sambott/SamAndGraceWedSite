@@ -14,7 +14,8 @@ namespace Web.Controllers
     {
         private readonly ArtistRepository ar_repo = new ArtistRepository();
         private readonly TrackRepository tr_repo = new TrackRepository();
-
+        private readonly EchoNestHelper enHelper = new EchoNestHelper();
+        
         public ActionResult ViewArtistSuggestions(int? page)
         {
             int pageSize = 10;
@@ -29,8 +30,10 @@ namespace Web.Controllers
             return View(tr_repo.GetAll().OrderByDescending(x => x.Votes).ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult MusicSuggested()
+        public ActionResult MusicSuggested(string trackName, string artistName)
         {
+            ViewBag.TrackName = trackName;
+            ViewBag.ArtistName = artistName;
             return View();
         }
 
@@ -42,10 +45,10 @@ namespace Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [CaptchaValidation("CaptchaCode", "SampleCaptcha", "Incorrect CAPTCHA code!")]
-        public ActionResult SuggestMusic([Bind(Include = "TrackName,ArtistName")] Track track)
+        public ActionResult SuggestMusic([Bind(Include = "TrackId,TrackName,ArtistId,ArtistName")] Track track)
         {
             if (!ModelState.IsValid) return View(track);
-            Artist existingArtist = ar_repo.GetById(track.ArtistName);
+            Artist existingArtist = ar_repo.GetById(track.ArtistId);
             if (existingArtist != null)
             {
                 existingArtist.CountVote();
@@ -54,12 +57,13 @@ namespace Web.Controllers
             else
             {
                 Artist artist = new Artist();
+                artist.ArtistId = track.ArtistId;
                 artist.ArtistName = track.ArtistName;
                 ar_repo.Add(artist);
             }
             ar_repo.Save();
 
-            Track existingTrack = tr_repo.GetById(track.TrackName, track.ArtistName);
+            Track existingTrack = tr_repo.GetById(track.TrackId, track.ArtistId);
             if (existingTrack != null)
             {
                 existingTrack.CountVote();
@@ -71,7 +75,7 @@ namespace Web.Controllers
             }
             tr_repo.Save();
 
-            return RedirectToAction("MusicSuggested");
+            return RedirectToAction("MusicSuggested", new { trackName=track.TrackName, artistName=track.ArtistName });
         }
 
         protected override void Dispose(bool disposing)
@@ -84,5 +88,17 @@ namespace Web.Controllers
             base.Dispose(disposing);
         }
 
+        public string GetEchoNestArtists(int results, string format, string name)
+        {
+            string sort = "&sort=familiarity-desc";
+            string query = "v4/artist/search?" + "results=" + results + "&format=" + format + "&name=" + name + sort;
+            return enHelper.MakeEchoNestRequest(query);
+        }
+
+        public string GetEchoNestTracks(int results, string format, string id, string start)
+        {
+            string query = "v4/artist/songs?" + "results=" + results + "&format=" + format + "&id=" + id + "&start=" + start; 
+            return enHelper.MakeEchoNestRequest(query);
+        }
     }
 }

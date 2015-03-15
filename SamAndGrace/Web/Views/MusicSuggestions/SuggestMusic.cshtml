@@ -5,7 +5,9 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
+        <script>
 
+        </script>
         <div class="form-horizontal">
             <fieldset>
                 <h4>Suggest Music</h4>
@@ -15,7 +17,10 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.ArtistName, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Artist")
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.ArtistName, new { htmlAttributes = new { @class = "form-control", @id = "artistName" } })
+                        @Html.EditorFor(model => model.ArtistName, new { htmlAttributes = new { @class = "form-control typeahead", @id = "artistName",
+                                        @autocomplete="off", @placeholder="Please select an artist"} })
+                        @Html.EditorFor(model => model.ArtistId, new { htmlAttributes = new { @class = "form-control", @id = "artistId",
+                                        @required="true", @type="hidden", @artistId=""} })
                         @Html.ValidationMessageFor(model => model.ArtistName, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -23,7 +28,10 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.TrackName, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Track")
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.TrackName, new { htmlAttributes = new { @class = "form-control", @id = "trackName" } })
+                        @Html.EditorFor(model => model.TrackName, new { htmlAttributes = new { @class = "form-control typeahead", @id = "trackName",
+                                        @autocomplete="off", @placeholder="Please choose an artist to continue"} })
+                        @Html.EditorFor(model => model.TrackId, new { htmlAttributes = new { @class = "form-control", @id = "trackId",
+                                        @required="true", @type="hidden", @trackId=""} })
                         @Html.ValidationMessageFor(model => model.TrackName, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -37,13 +45,13 @@
                     <div class="col-md-10">
                         @{ var sampleCaptcha = new MvcCaptcha("SampleCaptcha"); }
                         @Html.Captcha(sampleCaptcha)
-                        @Html.TextBox("CaptchaCode")
+                        @Html.TextBox("CaptchaCode", "", new { @autocomplete = "off" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Suggest Music" class="btn btn-default" />
+                        <input type="submit" value="Suggest Music" class="btn btn-default" id="submitSuggest" />
                     </div>
                 </div>
             </fieldset>

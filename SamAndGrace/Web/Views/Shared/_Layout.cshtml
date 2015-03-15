@@ -44,8 +44,11 @@
             </div>
         </div>
 
+        @Styles.Render("~/Content/css/bootstrap-typeahead.css")
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/typeahead")
         @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/Scripts/echonest.functions.js")
         @RenderSection("scripts", required: false)
     </body>
 </html>

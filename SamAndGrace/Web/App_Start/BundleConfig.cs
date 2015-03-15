@@ -27,6 +27,9 @@ namespace Web
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/site.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/echonest").Include(
+                      "~/Scripts/echonest.functions.js"));
+
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = true;

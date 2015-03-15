@@ -16,6 +16,9 @@
                 <th>
                     Votes
                 </th>
+                <th>
+                    Echo Nest ID
+                </th>
             </tr>
         </thead>
 
@@ -31,6 +34,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Votes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrackId)
                     </td>
                 </tr>
             }

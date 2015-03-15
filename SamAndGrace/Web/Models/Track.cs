@@ -12,11 +12,13 @@ namespace Web.Models
     {
         [Key]
         [ColumnAttribute(Order = 0)]
+        public string TrackId { get; set; }
         [DisplayName("Track")]
         public string TrackName { get; set; }
         [Key]
         [ColumnAttribute(Order = 1)]
         [ForeignKey("Artist")]
+        public string ArtistId { get; set; }
         [DisplayName("Artist")]
         public string ArtistName { get; set; }
         public int Votes { get; set; }

@@ -57,7 +57,7 @@ namespace Web.Tests
         public void MusicSuggestedExists()
         {
             MusicSuggestionsController controller = new MusicSuggestionsController();
-            ViewResult result = controller.MusicSuggested() as ViewResult;
+            ViewResult result = controller.MusicSuggested("track1", "artist2") as ViewResult;
         }
 
         [Test]
@@ -66,7 +66,9 @@ namespace Web.Tests
             var controller = new MusicSuggestionsController();
             controller.SuggestMusic(new Track
             {
+                TrackId = "trck1",
                 TrackName = "track 1",
+                ArtistId = "art1",
                 ArtistName = "artist 1"
             });
             Assert.That(t_repo.GetAll().Count(), Is.EqualTo(1));
@@ -79,19 +81,23 @@ namespace Web.Tests
             var controller = new MusicSuggestionsController();
             controller.SuggestMusic(new Track
             {
+                TrackId = "trck1",
                 TrackName = "track 1",
+                ArtistId = "art1",
                 ArtistName = "artist 1"
             });
             controller.SuggestMusic(new Track
             {
+                TrackId = "trck2",
                 TrackName = "track 2",
+                ArtistId = "art1",
                 ArtistName = "artist 1"
             });
             Assert.That(t_repo.GetAll().Count(), Is.EqualTo(2));
             Assert.That(a_repo.GetAll().Count(), Is.EqualTo(1));
-            Assert.That(a_repo.GetById("artist 1").Votes, Is.EqualTo(2));
-            Assert.That(t_repo.GetById("track 1", "artist 1").Votes, Is.EqualTo(1));
-            Assert.That(t_repo.GetById("track 2", "artist 1").Votes, Is.EqualTo(1));
+            Assert.That(a_repo.GetById("art1").Votes, Is.EqualTo(2));
+            Assert.That(t_repo.GetById("trck1", "art1").Votes, Is.EqualTo(1));
+            Assert.That(t_repo.GetById("trck2", "art1").Votes, Is.EqualTo(1));
         }
     }
 }
