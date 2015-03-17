@@ -32,7 +32,7 @@
                     @Html.LabelFor(model => model.Attending, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Able to attend?")
                     <div class="col-md-10">
                         <div class="checkbox">
-                            @Html.EditorFor(model => model.Attending)
+                            @Html.EditorFor(model => model.Attending, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Attending, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     @Html.LabelFor(model => model.RequiresTransport, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Require transport from church to Tythe Barn?")
                     <div class="col-md-10">
                         <div class="checkbox">
-                            @Html.EditorFor(model => model.RequiresTransport)
+                            @Html.EditorFor(model => model.RequiresTransport, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.RequiresTransport, "", new { @class = "text-danger" })
                         </div>
                     </div>
