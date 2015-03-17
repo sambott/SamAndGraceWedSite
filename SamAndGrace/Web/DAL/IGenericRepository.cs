@@ -7,7 +7,7 @@ namespace Web.DAL
     public interface IGenericRepository<T> where T : class
     {
         IQueryable<T> GetAll();
-        T GetById(int id);
+        T GetById(params object[] id);
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
         void Add(T entity);
         void Delete(T entity);

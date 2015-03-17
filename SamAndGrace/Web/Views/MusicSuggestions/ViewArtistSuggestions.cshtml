@@ -1,0 +1,42 @@
+﻿@model PagedList.IPagedList<Web.Models.Artist>
+@using PagedList.Mvc;
+
+<br/>
+<div class="row">
+    <h4>Suggested Artists</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Artist
+                </th>
+                <th>
+                    Votes
+                </th>
+                <th>
+                    Echo Nest ID
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArtistName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Votes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArtistId)
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("ViewArtistSuggestions", new { page }))

@@ -45,7 +45,7 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult MusicSuggestions()
+        public ActionResult SuggestMusic()
         {
             return View();
         }

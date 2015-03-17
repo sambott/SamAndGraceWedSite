@@ -34,14 +34,6 @@ namespace Web.Tests
         }
 
         [Test]
-        public void MusicSuggestionsExists()
-        {
-            var controller = new HomeController();
-            var result = controller.MusicSuggestions() as ViewResult;
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
         public void TaxisExists()
         {
             var controller = new HomeController();
