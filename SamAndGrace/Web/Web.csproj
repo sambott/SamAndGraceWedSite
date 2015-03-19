@@ -164,13 +164,9 @@
     <Compile Include="Migrations\201502232029472_AddedDateTime.Designer.cs">
       <DependentUpon>201502232029472_AddedDateTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503132050577_TracksAndArtists.cs" />
-    <Compile Include="Migrations\201503132050577_TracksAndArtists.Designer.cs">
-      <DependentUpon>201503132050577_TracksAndArtists.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503151612482_ArtistAndTrackIds.cs" />
-    <Compile Include="Migrations\201503151612482_ArtistAndTrackIds.Designer.cs">
-      <DependentUpon>201503151612482_ArtistAndTrackIds.cs</DependentUpon>
+    <Compile Include="Migrations\201503191944443_RecreateMigrationsAsInterimStepWasInvalidInSql2014.cs" />
+    <Compile Include="Migrations\201503191944443_RecreateMigrationsAsInterimStepWasInvalidInSql2014.Designer.cs">
+      <DependentUpon>201503191944443_RecreateMigrationsAsInterimStepWasInvalidInSql2014.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accomodation.cs" />
@@ -259,11 +255,8 @@
     <EmbeddedResource Include="Migrations\201502232029472_AddedDateTime.resx">
       <DependentUpon>201502232029472_AddedDateTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503132050577_TracksAndArtists.resx">
-      <DependentUpon>201503132050577_TracksAndArtists.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503151612482_ArtistAndTrackIds.resx">
-      <DependentUpon>201503151612482_ArtistAndTrackIds.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503191944443_RecreateMigrationsAsInterimStepWasInvalidInSql2014.resx">
+      <DependentUpon>201503191944443_RecreateMigrationsAsInterimStepWasInvalidInSql2014.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

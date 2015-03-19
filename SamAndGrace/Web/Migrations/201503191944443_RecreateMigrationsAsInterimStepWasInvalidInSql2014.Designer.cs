@@ -7,13 +7,13 @@ namespace Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class ArtistAndTrackIds : IMigrationMetadata
+    public sealed partial class RecreateMigrationsAsInterimStepWasInvalidInSql2014 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ArtistAndTrackIds));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RecreateMigrationsAsInterimStepWasInvalidInSql2014));
         
         string IMigrationMetadata.Id
         {
-            get { return "201503151612482_ArtistAndTrackIds"; }
+            get { return "201503191944443_RecreateMigrationsAsInterimStepWasInvalidInSql2014"; }
         }
         
         string IMigrationMetadata.Source
