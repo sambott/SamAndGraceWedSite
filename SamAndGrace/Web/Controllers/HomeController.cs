@@ -38,7 +38,7 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult Accomodation()
+        public ActionResult Accommodation()
         {
             ViewBag.Hotels = Directory.Instance.Hotels;
             ViewBag.BAndBs = Directory.Instance.BAndBs;

@@ -44,10 +44,10 @@ namespace Web.Tests
         }
 
         [Test]
-        public void AccomodationExists()
+        public void AccommodationExists()
         {
             var controller = new HomeController();
-            var result = controller.Accomodation() as ViewResult;
+            var result = controller.Accommodation() as ViewResult;
             Assert.IsNotNull(result);
             Assert.That(result.ViewBag.Hotels, Is.TypeOf<List<Hotel>>());
             Assert.That(result.ViewBag.Hotels.Count, Is.GreaterThan(0));

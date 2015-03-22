@@ -169,7 +169,7 @@
       <DependentUpon>201503191944443_RecreateMigrationsAsInterimStepWasInvalidInSql2014.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Accomodation.cs" />
+    <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\BAndB.cs" />
     <Compile Include="Models\Directory.cs" />
@@ -228,7 +228,7 @@
     <Content Include="Views\Home\GiftList.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Accomodation.cshtml" />
+    <Content Include="Views\Home\Accommodation.cshtml" />
     <Content Include="Views\Home\Taxis.cshtml" />
     <Content Include="Views\Rsvp\Create.cshtml" />
     <Content Include="Views\Rsvp\ViewRsvps.cshtml" />

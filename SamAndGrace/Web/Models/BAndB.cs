@@ -1,6 +1,6 @@
 ﻿namespace Web.Models
 {
-    public class BAndB : Accomodation
+    public class BAndB : Accommodation
     {
     }
 }

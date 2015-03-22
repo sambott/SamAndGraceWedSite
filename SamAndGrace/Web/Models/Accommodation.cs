@@ -2,7 +2,7 @@
 
 namespace Web.Models
 {
-    public abstract class Accomodation
+    public abstract class Accommodation
     {
         public string Name { get; set; }
         public string Location { get; set; }
