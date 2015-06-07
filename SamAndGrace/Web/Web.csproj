@@ -141,6 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\TypeaheadBundleConfig.cs" />
+    <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\EchoNestHelper.cs" />
     <Compile Include="Controllers\EmailSender.cs" />
     <Compile Include="Controllers\HomeController.cs" />

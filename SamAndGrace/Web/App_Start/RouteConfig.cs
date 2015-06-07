@@ -19,6 +19,11 @@ namespace Web
                 defaults: new { controller = "Home", action = "GiftList" }
             );
             routes.MapRoute(
+                name: "Photos",
+                url: "photos/{*anything}",
+                defaults: new { controller = "Photo", action = "Index" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
